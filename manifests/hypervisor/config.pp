@@ -28,8 +28,8 @@ class proxmox5::hypervisor::config {
 
     # Remove the Subscription message
     exec { 'remove_subscription_message':
-      command => 'rm -f /usr/share/pve-manager/js/pvemanagerlib.js.bak; sed -i".bak" -r -e "s/if \(data.status !== \'Active\'\) \{/if (false) {/" /usr/share/pve-manager/js/pvemanagerlib.js',
-      onlyif  => 'grep "if (data.status !== \'Active\') {" /usr/share/pve-manager/js/pvemanagerlib.js',
+      command => 'rm -f /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js.bak; sed -i".bak" -r -e "s/if \(data.status !== \'Active\'\) \{/if (false) {/" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js',
+      onlyif  => 'grep "if (data.status !== \'Active\') {" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js',
     }
 
   }
